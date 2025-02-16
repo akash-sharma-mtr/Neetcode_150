@@ -1,0 +1,23 @@
+## First Approach
+class Solution:
+    def hasDuplicate(self, nums: List[int]) -> bool:
+        nums.sort()
+
+        for i in range(len(nums)-1):
+            if nums[i]==nums[i+1]:
+                return True
+            
+        return False
+
+## Second Approach
+
+class Solution:
+    def hasDuplicate(self, nums: List[int]) -> bool:
+        entry = set()
+
+        for ele in nums:
+            if ele in entry:
+                return True
+            entry.add(ele)
+            
+        return False
