@@ -1,0 +1,15 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        temp = [ 0 for i in range(26)]
+
+        for char in s:
+            temp[ord(char)-ord('a')] += 1
+
+        for char in t:
+            temp[ord(char)-ord('a')] -= 1
+        
+        for ele in temp:
+            if ele!=0:
+                return False
+
+        return True
