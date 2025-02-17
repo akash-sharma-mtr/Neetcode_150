@@ -1,0 +1,21 @@
+# First Solution
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        for i in range(len(nums)):
+            for j in range(i+1, len(nums)):
+                if nums[i] + nums[j] == target:
+                    res = list()
+                    res.append(i)
+                    res.append(j)
+                    return res
+
+# 2nd Solution
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        prevMap = {}
+        for id, item in enumerate(nums):
+            if target - item in prevMap:
+                return [prevMap[target - item], id]
+            prevMap[item] = id
+
+        return []
